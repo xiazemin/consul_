@@ -70,7 +70,15 @@ Gossip encrypt: false, RPC-TLS: false, TLS-Incoming: false
 
 $ ls
 
-checkpoint-signature	raft
+checkpoint-signature    raft
 
-node-id			serf
+node-id            serf
+
+查看consul服务节点
+
+$ consul members
+
+Node       Address            Status  Type    Build  Protocol  DC
+
+localhost  172.24.26.61:8301  alive   server  0.8.1  2         dc1
 
