@@ -88,19 +88,19 @@ $ curl localhost:8500/v1/catalog/nodes
 
 \[{"Node":"Armons-MacBook-Air","Address":"10.1.10.38"}\]
 
-6. 注册服务
+1. 注册服务
 
-1. 创建文件夹
+2. 创建文件夹
 
 $ mkdir etc
 
 $ mkdir etc/consul.d
 
-2. 将服务配置文件写入文件夹内
+1. 将服务配置文件写入文件夹内
 
 $  echo '{"service": {"name": "web", "tags": \["rails"\], "port": 80}}'  &gt;/Users/didi/consul/etc/consul.d/web.json
 
-3. 重启consul，并将配置文件的路径给consul
+1. 重启consul，并将配置文件的路径给consul
 
 $  consul agent -server -bootstrap-expect 1 -data-dir /Users/didi/consul   -config-dir /Users/didi/consul/etc/consul.d/
 
@@ -112,21 +112,63 @@ $  consul agent -server -bootstrap-expect 1 -data-dir /Users/didi/consul   -conf
 
 ==&gt; Consul agent running!
 
-           Version: 'v0.8.1'
+```
+       Version: 'v0.8.1'
 
-           Node ID: '04145f71-d5c1-a469-c270-026f3911e0b1'
+       Node ID: '04145f71-d5c1-a469-c270-026f3911e0b1'
 
-         Node name: 'localhost'
+     Node name: 'localhost'
 
-        Datacenter: 'dc1'
+    Datacenter: 'dc1'
+```
 
-4. 查询ip和端口
-
-
+1. 查询ip和端口
 
 DNS方式：dig @127.0.0.1 -p 8600 web.service.consul SRV
 
+; &lt;&lt;&gt;&gt; DiG 9.8.3-P1 &lt;&lt;&gt;&gt; @127.0.0.1 -p 8600 web.service.consul SRV
+
+; \(1 server found\)
+
+;; global options: +cmd
+
+;; Got answer:
+
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 44124
+
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; WARNING: recursion requested but not available
 
 
-Http方式：curl http://localhost:8500/v1/catalog/service/web
+
+;; QUESTION SECTION:
+
+;web.service.consul.		IN	SRV
+
+
+
+;; ANSWER SECTION:
+
+web.service.consul.	0	IN	SRV	1 1 80 localhost.node.dc1.consul.
+
+
+
+;; ADDITIONAL SECTION:
+
+localhost.node.dc1.consul. 0	IN	A	172.24.26.61
+
+
+
+;; Query time: 2 msec
+
+;; SERVER: 127.0.0.1\#8600\(127.0.0.1\)
+
+;; WHEN: Fri May  5 17:02:34 2017
+
+;; MSG SIZE  rcvd: 91
+
+
+
+Http方式：curl [http://localhost:8500/v1/catalog/service/web](http://localhost:8500/v1/catalog/service/web)
 
