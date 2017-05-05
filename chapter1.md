@@ -36,23 +36,27 @@ If consul was built with --with-web-ui, you can activate the UI by running
 
 consul with \`-ui-dir /usr/local/opt/consul/share/consul/web-ui\`.
 
-
-
 zsh completions have been installed to:
 
-  /usr/local/share/zsh/site-functions
-
-
+/usr/local/share/zsh/site-functions
 
 To have launchd start consul now and restart at login:
 
-  brew services start consul
+brew services start consul
 
 Or, if you don't want/need a background service you can just run:
 
-  consul agent -dev -advertise 127.0.0.1
+consul agent -dev -advertise 127.0.0.1
 
 ==&gt; Summary
 
 🍺  /usr/local/Cellar/consul/0.8.1: 5 files, 34.3MB
+
+$    consul -v
+
+Consul v0.8.1
+
+Protocol 2 spoken by default, understands 2 to 3 \(agent will automatically use protocol &gt;2 when speaking to compatible agents\)
+
+安装成功
 
