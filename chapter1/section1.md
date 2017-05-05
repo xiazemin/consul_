@@ -82,3 +82,11 @@ Node       Address            Status  Type    Build  Protocol  DC
 
 localhost  172.24.26.61:8301  alive   server  0.8.1  2         dc1
 
+将http请求发给consul server
+
+
+
+$ curl localhost:8500/v1/catalog/nodes
+
+\[{"Node":"Armons-MacBook-Air","Address":"10.1.10.38"}\]
+
