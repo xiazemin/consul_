@@ -20,5 +20,7 @@ Error: '/usr/local/Homebrew/Library/Taps/caskroom/homebrew-cask/Casks/brew-cask.
 
 Error: nothing to install
 
+brew和brew／cask 区别：brew 源码下载编译安装，cask 安装包安装
+
 
 
