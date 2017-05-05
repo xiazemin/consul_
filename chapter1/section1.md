@@ -140,25 +140,17 @@ DNS方式：dig @127.0.0.1 -p 8600 web.service.consul SRV
 
 ;; WARNING: recursion requested but not available
 
-
-
 ;; QUESTION SECTION:
 
-;web.service.consul.		IN	SRV
-
-
+;web.service.consul.        IN    SRV
 
 ;; ANSWER SECTION:
 
-web.service.consul.	0	IN	SRV	1 1 80 localhost.node.dc1.consul.
-
-
+web.service.consul.    0    IN    SRV    1 1 80 localhost.node.dc1.consul.
 
 ;; ADDITIONAL SECTION:
 
-localhost.node.dc1.consul. 0	IN	A	172.24.26.61
-
-
+localhost.node.dc1.consul. 0    IN    A    172.24.26.61
 
 ;; Query time: 2 msec
 
@@ -168,7 +160,11 @@ localhost.node.dc1.consul. 0	IN	A	172.24.26.61
 
 ;; MSG SIZE  rcvd: 91
 
-
-
 Http方式：curl [http://localhost:8500/v1/catalog/service/web](http://localhost:8500/v1/catalog/service/web)
+
+$ curl http://localhost:8500/v1/catalog/service/web
+
+\[{"ID":"04145f71-d5c1-a469-c270-026f3911e0b1","Node":"localhost","Address":"172.24.26.61","TaggedAddresses":{"lan":"172.24.26.61","wan":"172.24.26.61"},"NodeMeta":{},"ServiceID":"web","ServiceName":"web","ServiceTags":\["rails"\],"ServiceAddress":"","ServicePort":80,"ServiceEnableTagOverride":false,"CreateIndex":37,"ModifyIndex":37}\]
+
+
 
